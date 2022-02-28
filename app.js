@@ -43,7 +43,19 @@ const details = (id) => {
     const url = `https://www.thesportsdb.com/api/v1/json/2/lookupplayer.php?id=${id}`;
     fetch(url)
         .then((response) => response.json())
-        .then((data) => console.log(data.players[0]));
+        // .then((data) => console.log(data.players[0]));
+        .then((data) => setDetails(data.players[0]));
 
 };
 
+
+// Set Player Details
+
+const setDetails = (info) => {
+    // console.log(info);
+    document.getElementById("details-container").innerHTML = `
+      <div>
+      <img src="" alt="">
+      <h1>Name: ${info.strPlayer}        
+      `
+}
